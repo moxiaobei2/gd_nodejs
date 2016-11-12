@@ -1,0 +1,25 @@
+
+<div>
+    <strong>{this.getDone().length}</strong> done,
+    <strong>{this.getPending().length}</strong> pending
+    <br/>
+    <div class="todo-item" rt-repeat="todo1 in this.state.todos" key="{todo1.key}">
+        <img src="src/assets/delete.png"
+             onClick="()=>this.remove(todo1)"
+             title="Remove Todo" />
+        <input type="checkbox" checked="{todo1.done}" onChange="()=>this.toggleChecked(todo1Index)"/>
+
+        <span rt-class="{done: todo1.done}">{todo1.value}  {todo1Index}</span>
+    </div>
+    <input key="myinput" class="new-todo" placeholder="What needs to be done?" type="text"
+           onKeyDown="{this.inputKeyDown}"
+           valueLink="{this.linkState('edited')}"/>
+    <button onClick="{this.add}">Add</button><br/>
+    <button onClick="{this.clearDone}">Clear done</button>
+
+    <!--valueLink表示绑定的意思
+     valueLink="{this.linkState('test')}"
+    -->
+    <input type="text" placeholder="{this.state.test}" valueLink="{this.linkState('test')}" />
+    {this.state.test}
+</div>

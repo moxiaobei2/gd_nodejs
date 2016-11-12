@@ -1,0 +1,39 @@
+<rt-require dependency="react-bootstrap" as="RB"/>
+<rt-require dependency="react-router-bootstrap" as="RRB"/>
+<div  className="appContent">
+  <div className="header" >
+    <header className="noMargin">
+      <RB.Navbar >
+        <RB.Navbar.Header>
+          <img src="../images/yeoman.png"/>
+        </RB.Navbar.Header>
+        <RB.Nav activeKey={1}  className="hear_nav_item">
+          <rt-virtual rt-repeat="item in this.navArr" key="{'navitem_'+itemIndex}">
+            <RRB.IndexLinkContainer to={item.url} rt-if="itemIndex==(this.navArr.length-1)" >
+              <RB.NavItem eventKey={itemIndex} >{item.name}</RB.NavItem>
+            </RRB.IndexLinkContainer>
+            <RRB.LinkContainer to={item.url}  rt-if="itemIndex!=(this.navArr.length-1)">
+              <RB.NavItem eventKey={itemIndex}>{item.name}</RB.NavItem>
+            </RRB.LinkContainer>
+          </rt-virtual>
+        </RB.Nav>
+
+      </RB.Navbar>
+    </header>
+  </div>
+  <div className="dBody">
+    {this.children}
+    <div className="dfooter">
+      <footer className="navbar-fixed-bottom footer">
+        <p>健身平台&nbsp;&nbsp;版权所有
+          <strong>Copyright © 2016~2020 </strong>  &nbsp;&nbsp;本站所刊登的信息、数据和各种专栏材料，未经授权禁止下载使用
+        </p>
+        <p>
+          技术支持：广州万兔斯瑞广告公司
+        </p>
+      </footer>
+    </div>
+  </div>
+
+
+</div>

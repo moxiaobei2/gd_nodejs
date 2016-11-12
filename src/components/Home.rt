@@ -1,0 +1,5 @@
+<rt-require dependency="react-link-state" as="linkState"/>
+<div>
+  {this.state.name}：到底行不行
+  <input type="text" valueLink="{linkState(this, 'name')}" />
+</div>
