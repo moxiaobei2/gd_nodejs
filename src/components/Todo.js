@@ -1,4 +1,5 @@
 import template from './Todo.rt';
+import  React from 'react';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
 
 const ENTER_KEY = 13;
